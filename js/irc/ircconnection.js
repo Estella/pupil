@@ -12,6 +12,7 @@ qwebirc.irc.IRCConnection = new Class({
     errorAlert: true,
     maxRetries: 5,
     serverPassword: null,
+    gecos: null,
     authUser: null,
     authSecret: null
   },
@@ -260,6 +261,7 @@ qwebirc.irc.IRCConnection = new Class({
       postdata+="&authUser=" + encodeURIComponent(this.options.authUser);
       postdata+="&authSecret=" + encodeURIComponent(this.options.authSecret);
     }
+    postdata+="&gecos=" + encodeURIComponent(this.options.gecos);
 
     r.send(postdata);
   },

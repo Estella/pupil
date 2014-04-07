@@ -157,7 +157,7 @@ class QWebIRCClient(basic.LineReceiver):
     self.write("CAP LS");
 
     f = self.factory.ircinit
-    nick, ident, ip, realname, hostname, pass_ = f["nick"], f["ident"], f["ip"], f["realname"], f["hostname"], f.get("password")
+    nick, ident, ip, realname, hostname, pass_ = f["nick"], f["ident"], f["ip"], f["realname"][0], f["hostname"], f.get("password")
     self.__nickname = nick
     self.__perform = f.get("perform")
     self.authUser = f.get("authUser")

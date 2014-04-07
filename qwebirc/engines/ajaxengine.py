@@ -211,7 +211,7 @@ class AJAXEngine(resource.Resource):
     session = IRCSession(id)
     perform = None
 
-    ident, realname = config.irc["ident_string"], config.irc["realname"]
+    ident, realname = config.irc["ident_string"], request.args.get("gecos")
     if config.irc["ident"] == "hex":
       ident = socket.inet_aton(ip).encode("hex")
     elif config.irc["ident"] == "nick":

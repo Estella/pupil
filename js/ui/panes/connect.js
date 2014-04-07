@@ -52,6 +52,11 @@ qwebirc.ui.Panes.Connect.pclass = new Class({
     else
       data["nickname"] = conf.frontend.initial_nick;
 
+    if (this.gecosBox != null)
+      data["gecos"] = this.gecosBox.value;
+    else
+      data["gecos"] = "No GECOS was provided.";
+
     if (channel != null)
       data["autojoin"] = channel;
     else if (this.chanBox != null)
@@ -220,7 +225,9 @@ qwebirc.ui.Panes.Connect.pclass = new Class({
     }
 
     this.nickBox = new Element("input");
+    this.gecosBox = new Element("input");
     createRow("Nickname:", this.nickBox);
+    createRow("GECOS (Realname):", this.gecosBox);
 
     if (conf.atheme.nickserv_login) {
       var srvbutton = new Element("input");
